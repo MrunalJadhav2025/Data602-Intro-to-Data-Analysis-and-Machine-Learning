@@ -1,0 +1,59 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "ac9d0972-d296-456f-b230-5cd797c3bdba",
+   "metadata": {},
+   "source": [
+    "<!DOCTYPE html>\n",
+    "<html>\n",
+    "<head>\n",
+    "    <title>To do Gender Prediction by Name</title>\n",
+    "    <script>\n",
+    "        function predictOne(name) {\n",
+    "            name = name.toLowerCase().trim();\n",
+    "            if (name.length === 0) {\n",
+    "                return \"Enter a valid name.\";\n",
+    "            }\n",
+    "\n",
+    "            let lastLetter = name.slice(-1);\n",
+    "\n",
+    "            if (\"aiey\".includes(lastLetter)) {\n",
+    "                return \"Gender more likely to be: Female\";\n",
+    "            } \n",
+    "            if (\"rtnd\".includes(lastLetter)) {\n",
+    "                return \"Gender more likely to be: Male\";\n",
+    "            }\n",
+    "            \n",
+    "            return name.length <= 4 ? \"Gender more likely to be: Male\" : \"Gender more likely to be: Female\";\n",
+    "        }\n",
+    "\n",
+    "        function predictGender() {\n",
+    "            let nameInput = document.getElementById(\"nameInput\").value;\n",
+    "            let prediction = predictOne(nameInput);\n",
+    "            document.getElementById(\"result\").innerText = prediction;\n",
+    "        }\n",
+    "    </script>\n",
+    "</head>\n",
+    "<body>\n",
+    "    <h2>To predict the Gender by Name</h2>\n",
+    "    <input type=\"text\" id=\"nameInput\" placeholder=\"Please enter the name you want to predict for here\" />\n",
+    "    <button onclick=\"predictGender()\">To check your gender prediction click here</button>\n",
+    "    <p id=\"result\"></p>\n",
+    "</body>\n",
+    "</html>\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "",
+   "name": ""
+  },
+  "language_info": {
+   "name": ""
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
