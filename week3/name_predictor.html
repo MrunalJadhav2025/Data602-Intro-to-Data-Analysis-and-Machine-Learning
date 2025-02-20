@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To do Gender Prediction by Name</title>
+    <script>
+        function predictOne(name) {
+            name = name.toLowerCase().trim();
+            if (name.length === 0) {
+                return "Enter a valid name.";
+            }
+
+            let lastLetter = name.slice(-1);
+
+            if ("aiey".includes(lastLetter)) {
+                return "Gender more likely to be: Female";
+            } 
+            if ("rtnd".includes(lastLetter)) {
+                return "Gender more likely to be: Male";
+            }
+            
+            return name.length <= 4 ? "Gender more likely to be: Male" : "Gender more likely to be: Female";
+        }
+
+        function predictGender() {
+            let nameInput = document.getElementById("nameInput").value;
+            let prediction = predictOne(nameInput);
+            document.getElementById("result").innerText = prediction;
+        }
+    </script>
+</head>
+<body>
+    <h2>To predict the Gender by Name</h2>
+    <input type="text" id="nameInput" placeholder="Please enter the name you want to predict for here" />
+    <button onclick="predictGender()">To check your gender prediction click here</button>
+    <p id="result"></p>
+</body>
+</html>
